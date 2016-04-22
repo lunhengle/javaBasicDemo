@@ -18,11 +18,12 @@ public class TimestampTest {
         //预定时间
         String date = "2016-04-01 11:03:21.456";
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        Assert.assertEquals(0, this.getDateDay1(date));
-        Assert.assertEquals(0, this.getDateDay2(date));
+        Assert.assertEquals(13, this.getDateDay1(date));
+        Assert.assertEquals(13, this.getDateDay2(date));
         this.getDifferDay(-3);
         this.getStartDay(timestamp);
         this.getEndDay(timestamp);
+        Assert.assertEquals(true,this.getDifferMinute(timestamp,600000));
     }
 
     /**
@@ -102,5 +103,28 @@ public class TimestampTest {
         System.out.println("getEndDay>>>>>>>>>>>>>>>>>" + time);
         Timestamp timestamp1 = Timestamp.valueOf(time);
         System.out.println("getEndDay>>>>>>>>>>>>>>>>>" + timestamp1.toString());
+    }
+
+    /**
+     * 获取和当前时间相差分钟数.
+     *
+     * @param timestamp 传入的时间戳
+     * @param differ    相差分钟数
+     * @return true 符合 小于等于相差分钟数 代表 false 不符合 大于分钟数
+     */
+    private boolean getDifferMinute(Timestamp timestamp, int differ) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(timestamp);
+        long mm=calendar.getTimeInMillis();
+        try {
+            Thread.sleep(1000 * 60);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Calendar calendarnow = Calendar.getInstance();
+        calendarnow.setTime(new Timestamp(System.currentTimeMillis()));
+        long mmnow=calendarnow.getTimeInMillis();
+        System.out.println(mm + ":" + mmnow);
+        return (mmnow - mm) <= differ ? true : false;
     }
 }

@@ -1,5 +1,7 @@
-package com.lhl.effectiveJava;
+package com.lhl;
 
+
+import com.lhl.effectiveJava.NutritionFocts;
 import org.junit.Test;
 
 /**

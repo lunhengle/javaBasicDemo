@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by lenovo on 2016/3/25.
  */
-public class TestList {
+public class ListTest {
 
     @Test
     public void testListContains() {
@@ -102,6 +102,38 @@ public class TestList {
         Collections.reverse(list);
         for (int i = 0; i < list.size(); i++) {
             System.out.println("排序后：" + list.get(i));
+        }
+    }
+
+    @Test
+    public void replace() {
+        List<User> list = new ArrayList<User>();
+        User user = new User();
+        user.setId(1);
+        user.setUsername("lunhengle");
+        user.setPassword("123465");
+        list.add(user);
+        User user1 = new User();
+        user1.setId(2);
+        user1.setUsername("lunhengle2");
+        user1.setPassword("123465");
+        list.add(user1);
+        User user2 = new User();
+        user2.setId(3);
+        user2.setUsername("lunhengle3");
+        user2.setPassword("123456");
+        list.add(user2);
+        for (User u : list) {
+            System.out.println(" id:" + u.getId() + " username:" + u.getUsername() + " password:" + u.getPassword());
+        }
+        System.out.println("####################################################");
+        User user3=new User();
+        user3.setId(4);
+        user3.setUsername("lunhenglerepalce");
+        user3.setPassword("123456");
+        list.set(2,user3);
+        for (User u : list) {
+            System.out.println(" id:" + u.getId() + " username:" + u.getUsername() + " password:" + u.getPassword());
         }
     }
 }
