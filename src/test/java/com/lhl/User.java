@@ -1,5 +1,7 @@
 package com.lhl;
 
+import java.sql.Timestamp;
+
 /**
  * Created by lenovo on 2016/4/18.
  */
@@ -7,6 +9,8 @@ public class User {
     private long id;
     private String username;
     private String password;
+    private int age;
+    private Timestamp timestamp;
 
     private int type;
 
@@ -40,5 +44,21 @@ public class User {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 }

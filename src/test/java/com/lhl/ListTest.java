@@ -136,4 +136,17 @@ public class ListTest {
             System.out.println(" id:" + u.getId() + " username:" + u.getUsername() + " password:" + u.getPassword());
         }
     }
+
+    @Test
+    public void testListToArray(){
+        List<Object> list=new ArrayList<>();
+        list.add(1);
+        list.add("test");
+        list.add("test4");
+        list.add(4);
+        Object [] params=list.toArray();
+        for(Object o:params){
+            System.out.println(o);
+        }
+    }
 }

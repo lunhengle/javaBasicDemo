@@ -2,10 +2,13 @@ package com.lhl;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by lenovo on 2016/3/31.
@@ -24,6 +27,17 @@ public class TimestampTest {
         this.getStartDay(timestamp);
         this.getEndDay(timestamp);
         Assert.assertEquals(true,this.getDifferMinute(timestamp,600000));
+    }
+
+    @Test
+    public void test(){
+        Timestamp timestamp=new Timestamp(System.currentTimeMillis());
+        String str=timestamp.toString();
+        Timestamp timestamp1 =Timestamp.valueOf(str);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date= new Date(timestamp1.getTime());
+        System.out.println(timestamp);
+        System.out.println(df.format(date));
     }
 
     /**

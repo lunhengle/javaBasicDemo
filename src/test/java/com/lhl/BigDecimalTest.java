@@ -20,4 +20,10 @@ public class BigDecimalTest {
         b2=new BigDecimal(20);
         return b1.compareTo(b2)==-1;
     }
+
+    @Test
+    public void test(){
+        BigDecimal bigDecimal = new BigDecimal(0.00);
+        System.out.println(bigDecimal);
+    }
 }
